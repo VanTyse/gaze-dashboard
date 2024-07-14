@@ -18,7 +18,7 @@ function Page() {
 
   return (
     <main className="p-8">
-      <Link href={"/"} className="mb-10">
+      <Link href={"/"} className="mb-10 block">
         <Logo />
       </Link>
       <div className="mx-auto max-w-[1100px] flex flex-col gap-6 md:gap-10">
