@@ -2,6 +2,7 @@
 
 import Button from "@/components/general/Button";
 import Logo from "@/components/general/Logo";
+import SearchBar from "@/components/general/SearchBar";
 import { ClusterContext } from "@/lib/context/ClusterContext";
 import { ConnectionContext } from "@/lib/context/ConnectionContext";
 import formatNumber from "@/lib/utils/formatNumberReadable";
@@ -22,6 +23,7 @@ export default function Page() {
           {selectedCluster}
         </Button>
       </div>
+      <SearchBar />
       <div className="mx-auto max-w-[1100px] flex flex-col gap-6 md:gap-10">
         <div className="grid grid-cols-1 md:grid-cols-2 mb-6 md:mb-10 gap-6 md:gap-10">
           <div className="flex flex-col gap-3 p-3 md:p-6 rounded-lg bg-cas-grey-foreground">
