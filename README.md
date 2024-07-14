@@ -11,7 +11,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Production
 
-In production please the build command is
+In production, run the build with the following command
 
 ```bash
 npm run build
