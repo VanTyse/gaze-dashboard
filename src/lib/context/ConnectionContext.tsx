@@ -60,7 +60,7 @@ export const ConnectionContextProvider = ({
     new Connection(clusterApiUrl(selectedCluster))
   );
 
-  useEffect(() => {
+  const initialize = () => {
     getAverageTPSForMinute(connection).then((TPS) =>
       setClusterDetails((d) => ({ ...d, TPS }))
     );
@@ -85,6 +85,12 @@ export const ConnectionContextProvider = ({
     connection
       .getVoteAccounts()
       .then((stake) => setClusterDetails((d) => ({ ...d, stake })));
+  };
+
+  useEffect(() => {
+    let timeout = setTimeout(initialize, 3000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
