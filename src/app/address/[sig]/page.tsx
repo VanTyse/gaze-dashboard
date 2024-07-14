@@ -14,38 +14,41 @@ function Page() {
     programId,
     executable,
   } = useContext(AddressContext);
+
   return (
     <main className="p-8">
       <div className="mb-10">
         <Logo />
       </div>
-      <div className="mx-auto max-w-[1100px]">
+      <div className="mx-auto max-w-[1100px] flex flex-col gap-6 md:gap-10">
         <div className="bg-cas-grey-foreground rounded-2xl p-4 md:p-6 flex flex-col gap-3">
           <h1 className="font-semibold">Overview</h1>
 
-          {pubKey && (
+          {pubKey ? (
             <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
               <div className="text-sm">Address</div>
               <div className="text-xs">{pubKey.toBase58()}</div>
             </div>
-          )}
+          ) : null}
           <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
             <div className="text-sm">Balance</div>
             <div className="text-xs">{balance}</div>
           </div>
 
-          {allocDataSize && (
+          {allocDataSize ? (
             <div className="flex items-center justify-between py-2 border-b border-cas-grey-border">
               <div className="text-sm">{allocDataSize}</div>
-              <div className="text-xs"></div>
+              <div className="text-xs">0</div>
             </div>
-          )}
+          ) : null}
 
-          {/* {<div className="flex items-center justify-between border-b border-cas-grey-border py-2">
-            <div className="text-sm">Assigned Program Id</div>
-            <div className="text-xs"></div>
-          </div>} */}
-          <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
+          {
+            <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
+              <div className="text-sm">Assigned Program Id</div>
+              <div className="text-xs">{programId.toString()}</div>
+            </div>
+          }
+          <div className="flex items-center justify-between py-2">
             <div className="text-sm">Executable</div>
             <div className="text-xs">{executable ? "Yes" : "No"}</div>
           </div>

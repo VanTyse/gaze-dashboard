@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { DM_Sans, Fira_Code } from "next/font/google";
 import "./globals.css";
 import Providers from "@/lib/context/Providers";
+import { ConfigProvider } from "antd";
+import antd_theme from './antd_theme'
 
 // import { Toaster } from "sonner";
 
@@ -27,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${dmsans.className} ${fira_code.variable} bg-cas-grey-background text-cas-primary-text`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <ConfigProvider theme={antd_theme}>{children}</ConfigProvider>
+        </Providers>
       </body>
     </html>
   );
