@@ -1,3 +1,4 @@
+import Logo from "@/components/general/Logo";
 import React from "react";
 
 function Page() {

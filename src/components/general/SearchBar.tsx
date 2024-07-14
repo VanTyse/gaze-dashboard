@@ -18,52 +18,56 @@ export default function SearchBar() {
   const { connection } = useContext(ConnectionContext);
 
   useEffect(() => {
-    try {
-      if (searchQuery.length) {
-        // search for an account
-        if (searchQuery.length === 44) {
-          const pubKey = new PublicKey(searchQuery);
-          const accountInfo = connection?.getAccountInfo(pubKey);
+    async function search() {
+      try {
+        if (searchQuery.length) {
+          // search for an account
+          if (searchQuery.length === 44) {
+            const pubKey = new PublicKey(searchQuery);
+            const accountInfo = await connection?.getAccountInfo(pubKey);
 
-          if (accountInfo) {
-            setSearchResults((r) => [
-              ...r,
-              {
-                type: "account",
-                results: [searchQuery],
-                url: `/address/${searchQuery}`,
-              },
-            ]);
+            if (accountInfo) {
+              setSearchResults((r) => [
+                ...r,
+                {
+                  type: "account",
+                  results: [searchQuery],
+                  url: `/address/${searchQuery}`,
+                },
+              ]);
+            }
           }
-        }
 
-        // search for a transaction
-        if (searchQuery.length === 88) {
-          const txInfo = connection?.getSignatureStatus(searchQuery);
+          // search for a transaction
+          if (searchQuery.length === 88) {
+            const txInfo = connection?.getSignatureStatus(searchQuery);
 
-          if (txInfo) {
-            setSearchResults((r) => [
-              ...r,
-              {
-                type: "transaction",
-                results: [searchQuery],
-                url: `/tx/${searchQuery}`,
-              },
-            ]);
+            if (txInfo) {
+              setSearchResults((r) => [
+                ...r,
+                {
+                  type: "transaction",
+                  results: [searchQuery],
+                  url: `/tx/${searchQuery}`,
+                },
+              ]);
+            }
           }
+
+          // search for tokens
+
+          // search for programs
+
+          // search for blocks
+
+          // search for epochs
         }
-
-        // search for tokens
-
-        // search for programs
-
-        // search for blocks
-
-        // search for epochs
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
+
+    search();
   }, [searchQuery]);
 
   return (
