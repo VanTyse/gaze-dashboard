@@ -14,6 +14,7 @@ import {
   ConfirmedSignatureInfo,
   LAMPORTS_PER_SOL,
   PublicKey,
+  SystemProgram,
   Transaction,
 } from "@solana/web3.js";
 import { useParams } from "next/navigation";
@@ -26,6 +27,15 @@ interface AddressContext {
   executable: boolean;
   transactionHistory: ConfirmedSignatureInfo[];
 }
+
+export const programMap = {
+  [SystemProgram.programId.toBase58()]: "System Program",
+  Config1111111111111111111111111111111111111: "Config Program",
+  Stake11111111111111111111111111111111111111: "Stake Program",
+  Vote111111111111111111111111111111111111111: "Vote Program",
+  AddressLookupTab1e1111111111111111111111111: "Address Lookup Table Program",
+  BPFLoaderUpgradeab1e11111111111111111111111: "BPF Loader",
+};
 
 const INITIAL_STATE: AddressContext = {
   pubKey: null,
