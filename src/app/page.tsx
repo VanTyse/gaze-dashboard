@@ -31,7 +31,7 @@ export default function Page() {
             {clusterDetails?.supply && (
               <>
                 <h1 className="">
-                  <span className="text-3xl">
+                  <span className="text-3xl text-cas-primary-teal">
                     {formatNumber(
                       clusterDetails?.supply?.circulating / LAMPORTS_PER_SOL
                     )}
@@ -44,7 +44,7 @@ export default function Page() {
                   </span>
                 </h1>
                 <h3>
-                  <span className="font-medium">
+                  <span className="font-medium text-cas-primary-teal">
                     {(
                       (clusterDetails?.supply?.circulating /
                         clusterDetails?.supply.total) *
@@ -62,7 +62,7 @@ export default function Page() {
             {clusterDetails?.stake && clusterDetails?.supply && (
               <>
                 <h1 className="">
-                  <span className="text-3xl">
+                  <span className="text-3xl text-cas-primary-teal">
                     {formatNumber(
                       clusterDetails?.stake.current.reduce(
                         (acc, curr) => acc + curr.activatedStake,
@@ -78,17 +78,18 @@ export default function Page() {
                   </span>
                 </h1>
                 <h3>
-                  <span className="font-medium">Delinquent stake: </span>
-                  {(
-                    (clusterDetails?.stake.delinquent.reduce(
-                      (acc, curr) => acc + curr.activatedStake,
-                      0
-                    ) /
-                      clusterDetails?.supply.total) *
-                    100
-                  ).toFixed(1)}
-                  {"% "}
-                  is circulating
+                  <span className="font-medium ">Delinquent stake: </span>
+                  <span className="text-cas-primary-teal">
+                    {(
+                      (clusterDetails?.stake.delinquent.reduce(
+                        (acc, curr) => acc + curr.activatedStake,
+                        0
+                      ) /
+                        clusterDetails?.supply.total) *
+                      100
+                    ).toFixed(1)}
+                    {"% "}
+                  </span>
                 </h3>
               </>
             )}
@@ -98,7 +99,7 @@ export default function Page() {
           <h1 className="font-semibold">Live Cluster Stats</h1>
 
           <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
-            <div className="text-sm">Slot</div>
+            <div className="text-sm text-cas-primary-teal">Slot</div>
             <div className="text-xs">
               {epochInfo?.absoluteSlot.toLocaleString()}
             </div>
@@ -119,7 +120,9 @@ export default function Page() {
           )}
           <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
             <div className="text-sm">Epoch</div>
-            <div className="text-xs">{epochInfo?.epoch}</div>
+            <div className="text-xs text-cas-primary-teal">
+              {epochInfo?.epoch}
+            </div>
           </div>
           <div className="flex items-center justify-between py-2">
             <div className="text-sm">Epoch progress</div>

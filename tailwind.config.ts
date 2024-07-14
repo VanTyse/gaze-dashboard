@@ -21,6 +21,9 @@ const config: Config = {
             100: "",
             200: "",
             text: "white",
+            red: "#D11512",
+            teal: "#81D8D0",
+            yellow: "#fed403",
           },
           seondary: {
             DEFAULT: "",

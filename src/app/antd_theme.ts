@@ -9,7 +9,7 @@ const theme: ThemeConfig = {
     colorBorder: "#505050",
     borderRadius: 8,
     colorText: "#fff",
-    colorPrimary: "#4A4A4A",
+    colorPrimary: "#81D8D0",
     colorBgBase: "#1E1E1E",
     controlOutlineWidth: 2,
     boxShadow: "0px 1px 2px rgba(16, 24, 40, 0.05)",

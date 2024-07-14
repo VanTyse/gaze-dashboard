@@ -68,16 +68,9 @@ export default function ({ dataSetsData }: { dataSetsData: number[] }) {
         label: "Transactions Per Second",
         data: dataSetsData,
         borderColor: "rgba(255, 255, 255, 0.7)",
-        backgroundColor: "rgba(255, 255, 255, 0.7)",
+        backgroundColor: "rgba(129, 216, 208 ,1)",
         pointRadius: 10,
       },
-      //   {
-      //     label: "Disqualified",
-      //     data: dataSetsData[1],
-      //     borderColor: "rgba(154, 137, 255, 0.7)",
-      //     backgroundColor: "rgba(154, 137, 255, 0.7)",
-      //     pointRadius: 10,
-      //   },
     ],
   };
   return (

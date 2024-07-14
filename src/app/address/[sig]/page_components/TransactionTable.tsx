@@ -17,7 +17,7 @@ export default function TransactionTable({
       key: "signature",
       render: (data) => (
         <div className="max-w-[300px]">
-          <p className="truncate">{data}</p>
+          <p className="truncate text-cas-primary-teal">{data}</p>
         </div>
       ),
     },
@@ -48,7 +48,7 @@ export default function TransactionTable({
       dataIndex: "confirmationStatus",
       key: "confirm",
       render: (data) => (
-        <div className="rounded-md px-2 py-1 text-xs bg-cas-grey-800 text-black w-fit">
+        <div className="rounded-md px-2 py-1 text-xs w-fit bg-teal-300 text-teal-800 font-medium capitalize">
           {data}
         </div>
       ),

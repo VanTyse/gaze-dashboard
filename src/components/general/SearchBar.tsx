@@ -74,8 +74,8 @@ export default function SearchBar() {
     <div className=" mb-10">
       <input
         type="text"
-        className="w-full px-3 py-2 mb-2 rounded-md bg-cas-primary"
-        placeholder="Search for blocks, accounts, transactions, programs, and tokens"
+        className="w-full px-3 py-3 mb-2 rounded-md bg-cas-primary"
+        placeholder="Search for accounts by entering wallet address"
         value={searchQuery}
         onChange={(e) => setSearchQuery?.(e.target.value)}
       />
