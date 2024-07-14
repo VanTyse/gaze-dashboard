@@ -62,7 +62,7 @@ export const AddressContextProvider = ({
         const accountContextData: AddressContext = {
           pubKey,
           balance: accountInfo?.lamports / LAMPORTS_PER_SOL,
-          allocDataSize: 0,
+          allocDataSize: accountInfo.data.length,
           executable: accountInfo.executable,
           programId: accountInfo.owner,
           transactionHistory: [],
