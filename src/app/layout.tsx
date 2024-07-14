@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fira_Code } from "next/font/google";
 import "./globals.css";
+import Providers from "@/lib/context/Providers";
 
 // import { Toaster } from "sonner";
 
@@ -26,8 +27,7 @@ export default function RootLayout({
       <body
         className={`${dmsans.className} ${fira_code.variable} bg-cas-grey-background text-cas-primary-text`}
       >
-        {/* {children} */}
-        {children}
+        <Providers>{children}</Providers>
         {/* <Toaster richColors /> */}
       </body>
     </html>
