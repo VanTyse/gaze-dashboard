@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { createContext, ReactNode, useState } from "react";
 import { Cluster } from "@solana/web3.js";
@@ -8,7 +8,7 @@ interface ClusterContext {
 }
 
 const INITIAL_STATE: ClusterContext = {
-  selectedCluster: "devnet",
+  selectedCluster: "mainnet-beta",
 };
 
 export const ClusterContext = createContext<ClusterContext>(INITIAL_STATE);
