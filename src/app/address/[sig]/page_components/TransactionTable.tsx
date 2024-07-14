@@ -41,7 +41,7 @@ export default function TransactionTable({
       title: "Timestamp",
       dataIndex: "blockTime",
       key: "blockTime",
-      render: (data) => <p>{new Date(data).toUTCString()}</p>,
+      render: (data) => <p>{new Date(data * 1000).toUTCString()}</p>,
     },
     {
       title: "Status",
