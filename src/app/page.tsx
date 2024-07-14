@@ -2,6 +2,7 @@
 
 import Button from "@/components/general/Button";
 import Logo from "@/components/general/Logo";
+import SearchBar from "@/components/general/SearchBar";
 import { ClusterContext } from "@/lib/context/ClusterContext";
 import { ConnectionContext } from "@/lib/context/ConnectionContext";
 import formatNumber from "@/lib/utils/formatNumberReadable";
@@ -19,6 +20,7 @@ export default function Page() {
           {selectedCluster}
         </Button>
       </div>
+      <SearchBar />
       <div className="grid grid-cols-1 md:grid-cols-2 mb-6">
         <div className="flex flex-col gap-3 p-3 rounded-lg bg-cas-grey-foreground">
           <h1>Circulating Supply</h1>
