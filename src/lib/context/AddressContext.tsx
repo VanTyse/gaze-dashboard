@@ -77,6 +77,8 @@ export const AddressContextProvider = ({
         setAccountState(accountContextData);
       }
     }
+
+    addressLookup();
   }, []);
 
   return (
