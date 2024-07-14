@@ -4,11 +4,14 @@ import {
   ConnectionContext,
   ConnectionContextProvider,
 } from "./ConnectionContext";
+import { AddressContextProvider } from "./AddressContext";
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <ClusterContextProvider>
-      <ConnectionContextProvider>{children}</ConnectionContextProvider>
+      <ConnectionContextProvider>
+        <AddressContextProvider>{children}</AddressContextProvider>
+      </ConnectionContextProvider>
     </ClusterContextProvider>
   );
 }

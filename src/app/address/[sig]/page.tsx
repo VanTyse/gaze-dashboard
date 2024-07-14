@@ -1,36 +1,56 @@
+"use client";
+
 import Logo from "@/components/general/Logo";
-import React from "react";
+import React, { useContext } from "react";
+import TransactionTable from "./page_components/TransactionTable";
+import { AddressContext } from "@/lib/context/AddressContext";
 
 function Page() {
+  const {
+    pubKey,
+    allocDataSize,
+    balance,
+    transactionHistory,
+    programId,
+    executable,
+  } = useContext(AddressContext);
   return (
-    <main>
+    <main className="p-8">
+      <div className="mb-10">
+        <Logo />
+      </div>
       <div className="mx-auto max-w-[1100px]">
         <div className="bg-cas-grey-foreground rounded-2xl p-4 md:p-6 flex flex-col gap-3">
           <h1 className="font-semibold">Overview</h1>
 
-          <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
-            <div className="text-sm">Address</div>
-            <div className="text-xs"></div>
-          </div>
+          {pubKey && (
+            <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
+              <div className="text-sm">Address</div>
+              <div className="text-xs">{pubKey.toBase58()}</div>
+            </div>
+          )}
           <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
             <div className="text-sm">Balance</div>
-            <div className="text-xs"></div>
+            <div className="text-xs">{balance}</div>
           </div>
 
-          <div className="flex items-center justify-between py-2 border-b border-cas-grey-border">
-            <div className="text-sm">Allocated Data Size</div>
-            <div className="text-xs"></div>
-          </div>
+          {allocDataSize && (
+            <div className="flex items-center justify-between py-2 border-b border-cas-grey-border">
+              <div className="text-sm">{allocDataSize}</div>
+              <div className="text-xs"></div>
+            </div>
+          )}
 
-          <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
+          {/* {<div className="flex items-center justify-between border-b border-cas-grey-border py-2">
             <div className="text-sm">Assigned Program Id</div>
             <div className="text-xs"></div>
-          </div>
+          </div>} */}
           <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
             <div className="text-sm">Executable</div>
-            <div className="text-xs"></div>
+            <div className="text-xs">{executable ? "Yes" : "No"}</div>
           </div>
         </div>
+        <TransactionTable transactions={transactionHistory} />
       </div>
     </main>
   );

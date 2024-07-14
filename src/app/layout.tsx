@@ -28,7 +28,6 @@ export default function RootLayout({
         className={`${dmsans.className} ${fira_code.variable} bg-cas-grey-background text-cas-primary-text`}
       >
         <Providers>{children}</Providers>
-        {/* <Toaster richColors /> */}
       </body>
     </html>
   );

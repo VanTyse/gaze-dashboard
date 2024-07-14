@@ -50,6 +50,7 @@ export const AddressContextProvider = ({
   const { sig } = useParams();
 
   useEffect(() => {
+    if (!sig) return;
     async function addressLookup() {
       // get address
       const pubKey = new PublicKey(sig);
@@ -79,7 +80,7 @@ export const AddressContextProvider = ({
     }
 
     addressLookup();
-  }, []);
+  }, [sig]);
 
   return (
     <AddressContext.Provider value={accountState}>

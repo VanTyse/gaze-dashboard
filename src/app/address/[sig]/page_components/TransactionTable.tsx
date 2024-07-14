@@ -1,13 +1,13 @@
 import { Table, TableProps } from "antd";
+import { ConfirmedSignatureInfo } from "@solana/web3.js";
 
-interface Transaction {
-  signature: string;
-  block: number;
-  blockTime: number;
-  confirmationStatus: true;
-}
+type Transaction = ConfirmedSignatureInfo;
 
-export default function TransactionTable() {
+export default function TransactionTable({
+  transactions,
+}: {
+  transactions: Transaction[];
+}) {
   const columns: TableProps<Transaction>["columns"] = [
     {
       title: "Transaction Signature",
@@ -29,11 +29,7 @@ export default function TransactionTable() {
       title: "Age",
       dataIndex: "blockTime",
       key: "type",
-      render: (data, record) => (
-        <div className="">
-          {}
-        </div>
-      ),
+      render: (data, record) => <div className="">{}</div>,
     },
     {
       title: "Timestamp",
@@ -42,35 +38,11 @@ export default function TransactionTable() {
       render: (data) => <p></p>,
     },
     {
-      title: "Phone Number",
-      dataIndex: "phone",
-      key: "phone",
-      render: (result) =>
-        record?.phone ? (
-          <a
-            target="_blank"
-            href={`tel:${record.phone}`}
-            className="text-gray-500 font-normal"
-          >
-            {record.phone}
-          </a>
-        ) : (
-          <span className="text-gray-500 font-normal">
-            {record?.phone ?? "Nil"}
-          </span>
-        ),
-    },
-    {
-      title: "",
-      key: "action",
-      render: (_, record) => (
-        <Space
-          size="middle"
-          onClick={() => handleDrawerOpen(record)}
-          className="cursor-pointer"
-        >
-          <p className="text-blue-600 font-medium">View</p>
-        </Space>
+      title: "Status",
+      dataIndex: "confirmationStatus",
+      key: "confirm",
+      render: (data) => (
+        <div className="rounded-md px-2 py-1 text-xs">{data}</div>
       ),
     },
   ];
@@ -78,15 +50,8 @@ export default function TransactionTable() {
     <Table
       // loading={isUsersFetching}
       columns={columns}
-      dataSource={users}
+      dataSource={transactions}
       rowKey={"id"}
-      // pagination={{
-      //   current: filters.page ?? 1,
-      //   total: meta?.total ?? users.length ?? 0,
-      //   pageSize: filters.per_page,
-      //   onShowSizeChange,
-      //   onChange: onPageChange,
-      // }}
     />
   );
 }
