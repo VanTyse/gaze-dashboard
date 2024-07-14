@@ -97,14 +97,18 @@ export default function Page() {
 
           <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
             <div className="text-sm">Slot</div>
-            <div className="text-xs">{epochInfo?.absoluteSlot}</div>
+            <div className="text-xs">
+              {epochInfo?.absoluteSlot.toLocaleString()}
+            </div>
           </div>
           <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
             <div className="text-sm">Block Height</div>
-            <div className="text-xs">{epochInfo?.blockHeight}</div>
+            <div className="text-xs">
+              {epochInfo?.blockHeight?.toLocaleString()}
+            </div>
           </div>
           {clusterDetails?.time && (
-            <div className="flex items-center justify-between py-2">
+            <div className="flex items-center justify-between py-2 border-b border-cas-grey-border">
               <div className="text-sm">Cluster Time</div>
               <div className="text-xs">
                 {new Date(clusterDetails.time * 1000).toUTCString()}
@@ -115,7 +119,7 @@ export default function Page() {
             <div className="text-sm">Epoch</div>
             <div className="text-xs">{epochInfo?.epoch}</div>
           </div>
-          <div className="flex items-center justify-between border-b border-cas-grey-border py-2">
+          <div className="flex items-center justify-between py-2">
             <div className="text-sm">Epoch progress</div>
             {epochInfo?.slotsInEpoch && (
               <div className="text-xs">

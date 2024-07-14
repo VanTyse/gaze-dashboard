@@ -8,7 +8,7 @@ interface ClusterContext {
 }
 
 const INITIAL_STATE: ClusterContext = {
-  selectedCluster: "mainnet-beta",
+  selectedCluster: "devnet",
 };
 
 export const ClusterContext = createContext<ClusterContext>(INITIAL_STATE);

@@ -61,6 +61,7 @@ export const ConnectionContextProvider = ({
   );
 
   const initialize = () => {
+    console.log("initializing");
     getAverageTPSForMinute(connection).then((TPS) =>
       setClusterDetails((d) => ({ ...d, TPS }))
     );
@@ -88,9 +89,9 @@ export const ConnectionContextProvider = ({
   };
 
   useEffect(() => {
-    let timeout = setTimeout(initialize, 3000);
+    let interval = setInterval(initialize, 1000);
 
-    return () => clearTimeout(timeout);
+    return () => clearInterval(interval);
   }, []);
 
   return (
